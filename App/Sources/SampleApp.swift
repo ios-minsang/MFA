@@ -8,11 +8,8 @@
 import SwiftUI
 
 import MainFeature
-import MainInterface
-import CounterInterface
 import CounterFeature
 import MaximFeature
-import MaximInterface
 
 @main
 struct SampleApp: App {

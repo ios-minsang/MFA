@@ -3,9 +3,9 @@ import ProjectDescriptionHelpers
 import MyPlugin
 
 let project = Project(
-    name: "MFA_Test",
+    name: "MFA",
     targets: [Target(
-        name: "MFAApp",
+        name: "MFA",
         platform: .iOS,
         product: .app,
         bundleId: "1020MFA",
@@ -13,18 +13,18 @@ let project = Project(
         sources: ["Sources/**"],
         resources: ["Resources/**"],
         dependencies: [
-            .project(target: "CounterFeature",
-                     path: .relativeToRoot("Features/Counter")),
-            .project(target: "CounterInterface",
-					 path: .relativeToRoot("Features/Counter")),
-			.project(target: "MaximFeature",
-					 path: .relativeToRoot("Features/Maxim")),
-			.project(target: "MaximInterface",
-					 path: .relativeToRoot("Features/Maxim")),
             .project(target: "MainFeature",
-                     path: .relativeToRoot("Features/Main")),
-            .project(target: "MainInterface",
-                     path: .relativeToRoot("Features/Main"))
+                     path: .relativeToRoot("Projects/Main")),
+            .project(target: "MainTesting",
+                     path: .relativeToRoot("Projects/Main")),
+            .project(target: "CounterFeature",
+                     path: .relativeToRoot("Projects/Counter")),
+            .project(target: "CounterTesting",
+                     path: .relativeToRoot("Projects/Counter")),
+            .project(target: "MaximFeature",
+                     path: .relativeToRoot("Projects/Maxim")),
+            .project(target: "MaximTesting",
+                     path: .relativeToRoot("Projects/Maxim")),
         ]
     )]
 )

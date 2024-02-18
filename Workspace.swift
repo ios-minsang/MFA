@@ -1,4 +1,4 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-let workspace = Workspace(name: "MFAAPP", projects: ["App"])
+let workspace = Workspace(name: "MFA", projects: ["App"])

@@ -2,10 +2,8 @@
 //  example.swift
 
 import SwiftUI
-import MainFeature
 
-import CounterInterface
-import MaximInterface
+import MainFeature
 import CounterTesting
 import MaximTesting
 

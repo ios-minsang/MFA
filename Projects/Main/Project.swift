@@ -3,7 +3,7 @@ import ProjectDescriptionHelpers
 import MyPlugin
 
 let project = Project(
-    name: "MainFeature",
+    name: "Main",
     targets: [
         Target(
             name: "MainExample",
@@ -11,14 +11,14 @@ let project = Project(
             product: .app,
             bundleId: "MainExampleApp",
             infoPlist: .extendingDefault(with: ["UILaunchScreen": ""]),
-            sources: ["FeatureExample/**"],
+            sources: ["Example/**"],
             dependencies: [
                 .target(name: "MainFeature"),
                 .target(name: "MainTesting"),
-                .project(target: "CounterTesting",
-                         path: .relativeToRoot("Features/Counter")),
-                .project(target: "MaximTesting",
-                         path: .relativeToRoot("Features/Maxim")),
+                .project(target: "CounterFeature", path: .relativeToRoot("Projects/Counter")),
+                .project(target: "CounterTesting", path: .relativeToRoot("Projects/Counter")),
+                .project(target: "MaximFeature", path: .relativeToRoot("Projects/Maxim")),
+                .project(target: "MaximTesting", path: .relativeToRoot("Projects/Maxim"))
             ]
         ),
         Target(
@@ -26,7 +26,7 @@ let project = Project(
             platform: .iOS,
             product: .staticLibrary,
             bundleId: "",
-            sources: ["FeatureInterface/**"]
+            sources: ["Interface/**"]
         ),
         Target(
             name: "MainFeature",
@@ -36,10 +36,8 @@ let project = Project(
             sources: ["Feature/**"],
             dependencies: [
                 .target(name: "MainInterface"),
-                .project(target: "CounterInterface",
-                         path: .relativeToRoot("Features/Counter")),
-                .project(target: "MaximInterface",
-                         path: .relativeToRoot("Features/Maxim")),
+                .project(target: "CounterInterface", path: .relativeToRoot("Projects/Counter")),
+                .project(target: "MaximInterface", path: .relativeToRoot("Projects/Maxim"))
             ]
         ),
         Target(
@@ -47,14 +45,14 @@ let project = Project(
             platform: .iOS,
             product: .unitTests,
             bundleId: "",
-            sources: ["FeatureTests/**"],
+            sources: ["Tests/**"],
             dependencies: [
                 .target(name: "MainFeature"),
                 .target(name: "MainTesting"),
-                .project(target: "CounterTesting",
-                         path: .relativeToRoot("Features/Counter")),
-                .project(target: "MaximTesting",
-                         path: .relativeToRoot("Features/Maxim")),
+                .project(target: "CounterFeature", path: .relativeToRoot("Projects/Counter")),
+                .project(target: "CounterTesting", path: .relativeToRoot("Projects/Counter")),
+                .project(target: "MaximFeature", path: .relativeToRoot("Projects/Maxim")),
+                .project(target: "MaximTesting", path: .relativeToRoot("Projects/Maxim"))
             ]
         ),
         Target(
@@ -62,9 +60,11 @@ let project = Project(
             platform: .iOS,
             product: .staticLibrary,
             bundleId: "",
-            sources: ["FeatureTesting/**"],
+            sources: ["Testing/**"],
             dependencies: [
-                .target(name: "MainInterface")
+                .target(name: "MainInterface"),
+                .project(target: "CounterInterface", path: .relativeToRoot("Projects/Counter")),
+                .project(target: "MaximInterface", path: .relativeToRoot("Projects/Maxim"))
             ]
         )
     ]

@@ -3,7 +3,7 @@ import ProjectDescriptionHelpers
 import MyPlugin
 
 let project = Project(
-    name: "CounterFeature",
+    name: "Counter",
     targets: [
         Target(
             name: "CounterExample",
@@ -11,7 +11,7 @@ let project = Project(
             product: .app,
             bundleId: "CounterExampleApp",
 			infoPlist: .extendingDefault(with: ["UILaunchScreen": ""]),
-            sources: ["FeatureExample/**"],
+            sources: ["Example/**"],
 			dependencies: [
 				.target(name: "CounterFeature"),
 				.target(name: "CounterTesting")
@@ -22,7 +22,7 @@ let project = Project(
             platform: .iOS,
             product: .staticLibrary,
             bundleId: "",
-            sources: ["FeatureInterface/**"]
+            sources: ["Interface/**"]
         ),
         Target(
             name: "CounterFeature",
@@ -39,7 +39,7 @@ let project = Project(
             platform: .iOS,
             product: .unitTests,
             bundleId: "",
-            sources: ["FeatureTests/**"],
+            sources: ["Tests/**"],
 			dependencies: [
 				.target(name: "CounterFeature"),
 				.target(name: "CounterTesting")
@@ -50,7 +50,7 @@ let project = Project(
             platform: .iOS,
             product: .staticLibrary,
             bundleId: "",
-            sources: ["FeatureTesting/**"],
+            sources: ["Testing/**"],
 			dependencies: [
 				.target(name: "CounterInterface")
 			]
